@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "@semantic-release/git": "10.0.1"
+    "@semantic-release/git": "10.0.1",
+    "semantic-release": "20.1.3"
   }
 }
