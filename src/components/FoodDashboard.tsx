@@ -52,12 +52,18 @@ export default function FoodDashboard() {
       <ul>
         {expenseList.map((expense) => (
           <li key={expense}>
-            <button
-              onClick={(e: any) => removeItem(e)}
-              className="item-btn btn"
-            >
-              {expense}
-            </button>
+            <span>
+              <button
+                onClick={(e: any) => removeItem(e)}
+                className="item-btn btn"
+              >
+                {expense} €
+              </button>
+              <textarea
+                placeholder="What did you buy?"
+                className="expense-description"
+              ></textarea>
+            </span>
           </li>
         ))}
       </ul>
@@ -66,7 +72,7 @@ export default function FoodDashboard() {
           <input
             type="number"
             value={input}
-            placeholder="Add a new expense"
+            placeholder="How much did you spend?"
             onChange={(e) => setInput(e.target.value)}
           />
         </form>
