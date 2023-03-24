@@ -9,6 +9,8 @@ import { useState } from "react";
 export default function FoodDashboard() {
   const [expenseList, setExpenseList] = useState([]);
   const [input, setInput] = useState("");
+  let initialExpenseId: number = 0;
+  let initialDescriptionId: number = 100;
   console.log(expenseList);
 
   let totalValue = expenseList
@@ -43,26 +45,43 @@ export default function FoodDashboard() {
     setExpenseList(removeItem);
   }
 
+  function handleDescriptionInput(e) {
+    e.preventDefault();
+    console.log("event", e.target.getAttribute("datatest-id"));
+    console.log("event", e.target.getAttribute("datatest-id"));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("foo");
+  }
+
   return (
     <>
       <div>
         <h1>Food Expenses</h1>
-        <p>This month you have spent {totalValue} Euro on food</p>
+        <p>This month you have spent {totalValue}€ on food</p>
       </div>
       <ul>
         {expenseList.map((expense) => (
-          <li key={expense}>
+          <li key={initialExpenseId++}>
             <span>
               <button
                 onClick={(e: any) => removeItem(e)}
                 className="item-btn btn"
+                datatest-id={initialExpenseId++}
               >
-                {expense} €
+                {expense}€
+                <form onSubmit={handleSubmit}>
+                  <input
+                    className="expense-description-input"
+                    type="text"
+                    placeholder="What did you buy?"
+                    onChange={(e) => handleDescriptionInput(e)}
+                    datatest-id={initialDescriptionId++}
+                  ></input>
+                </form>
               </button>
-              <textarea
-                placeholder="What did you buy?"
-                className="expense-description"
-              ></textarea>
             </span>
           </li>
         ))}
@@ -70,6 +89,7 @@ export default function FoodDashboard() {
       <div>
         <form onSubmit={addItem}>
           <input
+            className="expense-input"
             type="number"
             value={input}
             placeholder="How much did you spend?"

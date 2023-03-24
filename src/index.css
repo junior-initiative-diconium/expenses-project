@@ -1,7 +1,11 @@
-input {
+.expense-input {
   margin: 20px 0;
   padding: 10px;
-  width: 77%;
+  width: 165%;
+}
+
+form {
+  display: inline-block;
 }
 
 ul {
@@ -13,16 +17,22 @@ ul {
   display: inline-block;
   font-size: 1.2em;
   margin-top: 10px;
-  padding: 10px;
-  width: 30%;
+  padding: 10px 40px;
 }
 
 .expense-description {
-  margin-left: 10px;
-  padding: 7px;
-  position: relative;
-  top: 17px;
   resize: none;
+}
+
+.expense-description-input {
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid 3px;
+  font-size: 0.7em;
+  width: 80%;
 }
 
 .item-btn {
