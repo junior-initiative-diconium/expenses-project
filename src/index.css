@@ -20,6 +20,10 @@ ul {
   padding: 10px 40px;
 }
 
+.delete-btn {
+  padding-left: 10px;
+}
+
 .expense-description {
   resize: none;
 }
@@ -36,6 +40,5 @@ ul {
 }
 
 .item-btn {
-  background-color: #19a7ce;
-  color: white;
+  background-color: #67e8f9;
 }
