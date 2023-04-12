@@ -1,11 +1,18 @@
 .expense-input {
   margin: 20px 0;
   padding: 10px;
-  width: 165%;
+  border: 2px solid;
+  width: 93%;
+  text-align: center;
 }
 
-form {
-  display: inline-block;
+.expense-number {
+  padding-top: 10px;
+}
+
+input {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 ul {
@@ -14,14 +21,17 @@ ul {
 
 .btn {
   border-radius: 3px;
-  display: inline-block;
-  font-size: 1.2em;
-  margin-top: 10px;
-  padding: 10px 40px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .delete-btn {
-  padding-left: 10px;
+  padding-left: 50px;
+  padding-top: 10px;
+  opacity: 50%;
 }
 
 .expense-description {
@@ -30,15 +40,13 @@ ul {
 
 .expense-description-input {
   border: none;
-  border-radius: 3px;
   text-align: center;
   padding: 10px;
   margin-left: 10px;
-  border: 1px solid 3px;
-  font-size: 0.7em;
-  width: 80%;
 }
 
 .item-btn {
   background-color: #67e8f9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

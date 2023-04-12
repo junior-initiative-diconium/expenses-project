@@ -44,7 +44,7 @@ export default function FoodDashboard() {
           <li key={index}>
             <span>
               <button className="item-btn btn">
-                {expense}€
+                <span className="expense-number">{expense}€</span>
                 <form onSubmit={handleSubmit}>
                   <input
                     className="expense-description-input"
