@@ -23,7 +23,7 @@ ul {
   border-radius: 3px;
   font-size: 1em;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 5px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -43,10 +43,16 @@ ul {
   text-align: center;
   padding: 10px;
   margin-left: 10px;
+  background-color: #67e8f9;
 }
 
 .item-btn {
   background-color: #67e8f9;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.total-number {
+  color: #2684ff;
+  font-weight: bold;
 }

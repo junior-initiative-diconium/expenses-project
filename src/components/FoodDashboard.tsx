@@ -2,13 +2,16 @@ import { useState } from "react";
 // import ListItem from "./ListItem";
 
 // TODOs
-// Add functionality to X to remove item (?) DONE
-// Add a way to restore deleted item
+// Incorporate description into button/expense
+// Add a way to restore deleted item (?)
 // calculate expense total - might need separate button (?) DONE
 
 export default function FoodDashboard() {
-  const [expenseList, setExpenseList] = useState([]);
+  const [expenseList, setExpenseList] = useState(() => {
+    return JSON.parse(localStorage.getItem("expense-list")) || [];
+  });
   const [input, setInput] = useState("");
+  localStorage.setItem("expense-list", JSON.stringify(expenseList));
 
   let totalValue = expenseList
     .map((item) => parseInt(item))
@@ -24,20 +27,23 @@ export default function FoodDashboard() {
     }
   }
 
+  function addDescription(e: any) {
+    e.preventDefault();
+  }
+
   function removeItem(index) {
     const newList = expenseList.filter((_, i) => i !== index);
     setExpenseList(newList);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
   }
 
   return (
     <>
       <div>
         <h1>Food Expenses</h1>
-        <p>This month you have spent {totalValue}€ on food</p>
+        <p>
+          This month you have spent{" "}
+          <span className="total-number">{totalValue}€</span> on food
+        </p>
       </div>
       <ul>
         {expenseList.map((expense, index) => (
@@ -45,8 +51,9 @@ export default function FoodDashboard() {
             <span>
               <button className="item-btn btn">
                 <span className="expense-number">{expense}€</span>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={addDescription}>
                   <input
+                    key={index}
                     className="expense-description-input"
                     type="text"
                     placeholder="What did you buy?"
